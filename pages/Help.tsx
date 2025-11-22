@@ -1,5 +1,5 @@
 import React from 'react';
-import { Globe, Server, Rocket, HelpCircle, Terminal, AlertTriangle, CheckCircle2 } from 'lucide-react';
+import { Globe, Server, Rocket, HelpCircle, Terminal, AlertTriangle, CheckCircle2, FileJson } from 'lucide-react';
 
 const Help: React.FC = () => {
   return (
@@ -101,12 +101,31 @@ const Help: React.FC = () => {
             Troubleshooting "App Not Working"
           </h2>
         </div>
-        <div className="p-6 space-y-4">
+        <div className="p-6 space-y-6">
+            <div className="flex items-start bg-red-50 border border-red-100 p-4 rounded-lg">
+                <FileJson className="w-5 h-5 text-red-500 mr-3 mt-0.5" />
+                <div>
+                    <h4 className="font-bold text-red-800">Fixing White Screen on Vercel</h4>
+                    <p className="text-sm text-red-700 mt-1">
+                        If you see a white screen or 404s when refreshing pages (like /chat), you are missing the rewrite configuration.
+                        <br/><br/>
+                        <strong>Solution:</strong> Ensure the <code>vercel.json</code> file is present in your project root with the following content:
+                    </p>
+                    <pre className="bg-slate-900 text-green-400 text-xs p-3 rounded mt-2 overflow-x-auto">
+{`{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}`}
+                    </pre>
+                </div>
+            </div>
+
             <div className="flex items-start">
                 <CheckCircle2 className="w-5 h-5 text-green-500 mr-3 mt-0.5" />
                 <div>
-                    <h4 className="font-medium text-slate-800">White Screen / 404 Errors</h4>
-                    <p className="text-sm text-slate-600">If using React Router (which Wabsy uses), ensure your host is configured for <strong>Single Page Applications (SPA)</strong>. Redirect all requests to <code>index.html</code>.</p>
+                    <h4 className="font-medium text-slate-800">Missing Entry Script</h4>
+                    <p className="text-sm text-slate-600">Check that your <code>index.html</code> contains <code>&lt;script type="module" src="./index.tsx"&gt;&lt;/script&gt;</code> before the closing body tag.</p>
                 </div>
             </div>
             <div className="flex items-start">
@@ -114,13 +133,6 @@ const Help: React.FC = () => {
                 <div>
                     <h4 className="font-medium text-slate-800">Meta API Not Sending</h4>
                     <p className="text-sm text-slate-600">Go to <strong>Settings</strong>. Ensure your Access Token is valid and hasn't expired (Temporary tokens expire in 24h). Ensure the Phone Number ID is correct.</p>
-                </div>
-            </div>
-             <div className="flex items-start">
-                <CheckCircle2 className="w-5 h-5 text-green-500 mr-3 mt-0.5" />
-                <div>
-                    <h4 className="font-medium text-slate-800">Localhost only?</h4>
-                    <p className="text-sm text-slate-600">If you are running this code on your computer, nobody on the internet can see it. You must deploy it (Step 1 above) to connect it to your domain.</p>
                 </div>
             </div>
         </div>
