@@ -329,7 +329,7 @@ app.listen(3000, () => console.log('Webhook server running on port 3000'));
                 <ol className="space-y-4 text-sm text-blue-800 list-decimal list-inside">
                     <li>Go to <a href="https://developers.facebook.com/apps" target="_blank" rel="noreferrer" className="underline font-semibold">Meta Developers</a>.</li>
                     <li>Select your Business App.</li>
-                    <li>In the sidebar, find <span className="font-bold">WhatsApp</span> > <span className="font-bold">Configuration</span>.</li>
+                    <li>In the sidebar, find <span className="font-bold">WhatsApp</span> &gt; <span className="font-bold">Configuration</span>.</li>
                     <li>Click <span className="font-bold">Edit</span> in the Webhook section.</li>
                     <li>Paste your <span className="font-bold">Callback URL</span> (from your server) and <span className="font-bold">Verify Token</span>.</li>
                     <li>Click Verify and Save.</li>
